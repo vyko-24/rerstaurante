@@ -15,6 +15,10 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.vko37.restaurante",  
+      "config":{
+        "googleMapsApiKey": "AIzaSyCOgXgDX1Benj_HvZDvBl3X21KcaW90RVU"
+      },
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Se necesita acceso a la cámara para tomar fotos",
@@ -26,6 +30,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config":{
+        "googleMaps":{
+          "apiKey":"AIzaSyDWN9Y9d1PBUxBy26v2soW7xQT-UPZakq0"
+        }
       },
       "permissions": [
         "CAMERA",

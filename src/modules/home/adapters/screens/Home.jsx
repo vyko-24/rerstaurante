@@ -16,9 +16,10 @@ const storiesData = [
   // ... más datos de historias
 ];*/
 
-export default function Home() {
+export default function Home(props) {
   const [restaurants, setRestaurants] = useState(null);
   const [showLoading, setShowLoading] = useState(true);
+  const {navigation} = props;
 
   useEffect(() => {
     const arrayRestaurants = [];
@@ -44,17 +45,13 @@ export default function Home() {
       <FlatList
         data={restaurants}
         renderItem={({ item }) =>
-          <TouchableHighlight
-            activeOpacity={0.6}
-            underlayColor="#DDDDDD"
-            onPress={() => alert('Booooooooo')}>
             <FlatListRestaurant
               image={item.image}
               title={item.title}
               description={item.description}
               rating={item.rating}
+              action = { () => navigation.navigate('RestaurantDetails', {item})}
             />
-          </TouchableHighlight>
         }
         keyExtractor={item => item.id}
       />

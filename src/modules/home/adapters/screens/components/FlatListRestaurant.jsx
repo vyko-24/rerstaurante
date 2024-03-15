@@ -1,26 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Image, AirbnbRating } from '@rneui/base';
 
 
 export default function FlatListRestaurant(props) {
-    const {image, title, description, rating} = props
+    const {image, title, description, rating, action} = props
     return (
-        <View style={styles.row}>
-            <Image
-                source={{ uri: image }}
-                style={styles.image}
-            />
-            <View style={{ flex: 1, flexDirection: 'column', marginLeft: 8 }}>
+      <TouchableOpacity onPress={action}>
+      <View style={styles.row}>
+          <Image
+              source={{ uri: image }}
+              style={styles.image}
+          />
+          <View style={{ flex: 1, flexDirection: 'column', marginLeft: 8 }}>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <Text style={styles.title}>{title}</Text>
-                    <AirbnbRating count={5} defaultRating={rating} size={12} isDisabled={true} showRating={false} />
-                </View>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                  <Text style={styles.title}>{title}</Text>
+                  <AirbnbRating count={5} defaultRating={rating} size={12} isDisabled={true} showRating={false} />
+              </View>
 
-                <Text style={styles.description}>{description}</Text>
-            </View>
-        </View>
+              <Text style={styles.description}>{description}</Text>
+          </View>
+      </View>
+      </TouchableOpacity>
     )
 }
 
