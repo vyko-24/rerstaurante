@@ -3,6 +3,7 @@ import { View, StyleSheet, FlatList, TouchableHighlight } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import FlatListRestaurant from './components/FlatListRestaurant';
 import { collection, getFirestore, getDocs } from "firebase/firestore";
+import Loading from '../../../../kernel/components/Loading'
 
 /*
 const storiesData = [
@@ -32,11 +33,13 @@ export default function Home(props) {
           title: doc.data()['title'],
           description: doc.data()['description'],
           rating: doc.data()['rating'],
-          image: doc.data()['image']
+          image: doc.data()['image'],
+          longitude:doc.data()['longitude'],
+          latitude: doc.data()['latitude']
         });
       });
-      console.log(arrayRestaurants);
       setRestaurants(arrayRestaurants);
+      setShowLoading(false);
     })()
   }, [])
 
@@ -55,6 +58,7 @@ export default function Home(props) {
         }
         keyExtractor={item => item.id}
       />
+      <Loading visible={showLoading} title='Cargando restaurante'/>
     </View>
   );
 }
